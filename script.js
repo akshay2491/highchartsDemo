@@ -2,7 +2,11 @@ $(function () {
     $('#lineContainer').highcharts({
         title: {
             text: 'Monthly Average Temperature',
-            x: -20 //center
+            x: -20,
+            style: {
+                color: '#dbdbdb',
+                fontWeight: 'bold'
+            } //center
         },
         subtitle: {
             text: 'Source: WorldClimate.com',
@@ -10,26 +14,52 @@ $(function () {
         },
         xAxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            //tickColor: '#FF0000',
+            //tickWidth: 3
         },
         yAxis: {
             title: {
                 text: 'Temperature (°C)'
             },
+            //gridLineColor: '#197F07',
+            //gridLineWidth : 2,
+            /*labels:{
+                enabled:true,
+                format: '{value} km'
+            },*/
+            //lineColor: '#FF0000',
+            //lineWidth: 2,
+            //reversed: true,
             plotLines: [{
                 value: 0,
                 width: 1,
+                //dashStyle: 'longdashdot',
+                /*label: {
+                    text: 'Plot line',
+                    align: 'right',
+                    x: -10
+                },*/
                 color: '#808080'
-            }]
+                
+            }]/*,
+            plotBands: [{
+                color: 'black', // Color value
+                from: 0, // Start of the plot band
+                to: 5 // End of the plot band
+            }]*/
         },
         tooltip: {
+            //crosshairs: true,
             valueSuffix: '°C'
         },
         legend: {
+            //enabled:true,
+            //backgroundColor: '#FCFFC5',
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle',
-            borderWidth: 0
+            borderWidth: 1
         },
         series: [{
             name: 'Tokyo',
@@ -83,6 +113,9 @@ $(function () {
             }
         },
         tooltip: {
+            //borderColor: '#000000',
+            //enabled:true,
+
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
